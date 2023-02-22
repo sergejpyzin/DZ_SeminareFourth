@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task_29
+namespace task_29_02
 {
     internal class Program
     {
@@ -29,17 +29,16 @@ namespace task_29
             }
 
             // Создаем метод заполнения массива
-            int[] FillingArray(int length, int minValiue, int maxValiue)
+            int[] FillingArray(int length)
             {
-                Random random= new Random();
-                int[] array= new int[length];
+                int[] array = new int[length];
                 for (int i = 0; i < array.Length; i++)
                 {
-                    array[i] = random.Next(minValiue, maxValiue + 1);
+                    array[i] = ConvertUserMassedge("Введите элемент массива: ");
                 }
                 return array;
             }
-            
+
             // Создаем метод вывода массива на печать
             void PrintArray(int[] array)
             {
@@ -48,16 +47,13 @@ namespace task_29
                 {
                     Console.Write($"{array[i]}, ");
                 }
-                Console.Write($"{array.Length - 1}");
+                Console.Write($"{array.Length}");
                 Console.WriteLine($"]");
             }
 
             // Основной блок
-            int arrayLength = ConvertUserMassedge("Введите размер массива: ");
-            int minBoundaryArray = ConvertUserMassedge("Введите величину минимального числа массива: ");
-            int maxBoundaryArray = ConvertUserMassedge("Введите величину максимального числа массива: ");
-
-            int[] arr = FillingArray(arrayLength, minBoundaryArray, maxBoundaryArray);
+            int arrayLength = ConvertUserMassedge("Введите необходимую длинну массива: ");
+            int[] arr = FillingArray(arrayLength);
             PrintArray(arr);
         }
     }
